@@ -1,7 +1,6 @@
 # this is a alarm clock program
 
 import datetime
-from math import e
 from functions import set_alarm, stopwatch
 
 running = True
