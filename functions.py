@@ -2,8 +2,9 @@
 
 import datetime
 import time
+import pygame
 
-
+path_music ="D:/MyProjects/practice/alarm/Assassins Creed IV_ Black Flag leave her, Johnny.mp3"
 
 # This is an alarm clock program
 def set_alarm(alarm_time):
@@ -11,7 +12,14 @@ def set_alarm(alarm_time):
     while True:
         current_time = datetime.datetime.now().strftime("%H:%M:%S")
         if current_time == alarm_time:
-            print("Alarm ringing! Current time is:", current_time,"\nTime to wake up!\n")
+            print("wake up times up:", current_time,"\n\n")
+            pygame.mixer.init()
+            pygame.mixer.music.load(path_music)
+            pygame.mixer.music.play()
+
+            while pygame.mixer.music.get_busy():
+                time.sleep(1)
+
             break
 
         elif current_time > alarm_time:
